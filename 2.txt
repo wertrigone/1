@@ -1,4 +1,3 @@
-wertrigone@ai-mi50:~/.openclaw$ cat openclaw.json
 {
   "wizard": {
     "lastRunAt": "2026-03-14T19:30:08.875Z",
@@ -45,6 +44,13 @@ wertrigone@ai-mi50:~/.openclaw$ cat openclaw.json
         }
       },
       "workspace": "/home/wertrigone/.openclaw/workspace"
+        "sandbox": {                                                                                                                                                             
+         "docker": {                                                                                                                                                            
+           "binds": [                                                                                                                                                           
+             "/usr/local/bin/websearch-sandbox:/usr/local/bin/websearch:ro"                                                                                                     
+           ]                                                                                                                                                                    
+         }                                                                                                                                                                      
+       }
     }
   },
   "tools": {
