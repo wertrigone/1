@@ -1,109 +1,62 @@
-{
-  "wizard": {
-    "lastRunAt": "2026-03-14T19:30:08.875Z",
-    "lastRunVersion": "2026.3.13",
-    "lastRunCommand": "onboard",
-    "lastRunMode": "local"
-  },
-  "models": {
-    "mode": "merge",
-    "providers": {
-      "loca": {
-        "baseUrl": "http://192.168.1.68:8083/v1",
-        "apiKey": "123",
-        "api": "openai-completions",
-        "models": [
-          {
-            "id": "gpt-oss-20b",
-            "name": "gpt-oss-20b (Custom Provider)",
-            "reasoning": false,
-            "input": [
-              "text"
-            ],
-            "cost": {
-              "input": 0,
-              "output": 0,
-              "cacheRead": 0,
-              "cacheWrite": 0
-            },
-            "contextWindow": 131074,
-            "maxTokens": 4096
-          }
-        ]
-      }
-    }
-  },
-  "agents": {
-    "defaults": {
-      "model": {
-        "primary": "loca/gpt-oss-20b"
-      },
-      "models": {
-        "loca/gpt-oss-20b": {
-          "alias": "gpt"
-        }
-      },
-      "workspace": "/home/wertrigone/.openclaw/workspace"
-        "sandbox": {                                                                                                                                                             
-         "docker": {                                                                                                                                                            
-           "binds": [                                                                                                                                                           
-             "/usr/local/bin/websearch-sandbox:/usr/local/bin/websearch:ro"                                                                                                     
-           ]                                                                                                                                                                    
-         }                                                                                                                                                                      
-       }
-    }
-  },
-  "tools": {
-    "profile": "coding"
-  },
-  "commands": {
-    "native": "auto",
-    "nativeSkills": "auto",
-    "restart": true,
-    "ownerDisplay": "raw"
-  },
-  "session": {
-    "dmScope": "per-channel-peer"
-  },
-  "hooks": {
-    "internal": {
-      "enabled": true,
-      "entries": {
-        "boot-md": {
-          "enabled": true
-        },
-        "bootstrap-extra-files": {
-          "enabled": true
-        }
-      }
-    }
-  },
-  "gateway": {
-    "port": 18789,
-    "mode": "local",
-    "bind": "loopback",
-    "auth": {
-      "mode": "token",
-      "token": "6ebc253f7d584899d9c9fed226a206135b7191bd2223cff6"
-    },
-    "tailscale": {
-      "mode": "off",
-      "resetOnExit": false
-    },
-    "nodes": {
-      "denyCommands": [
-        "camera.snap",
-        "camera.clip",
-        "screen.record",
-        "contacts.add",
-        "calendar.add",
-        "reminders.add",
-        "sms.send"
-      ]
-    }
-  },
-  "meta": {
-    "lastTouchedVersion": "2026.3.13",
-    "lastTouchedAt": "2026-03-14T19:30:08.890Z"
-  }
-}
+wertrigone@ai-mi50:~$ openclaw --version
+openclaw models status
+openclaw status --all
+OpenClaw 2026.4.5 (3e72c03)
+
+🦞 OpenClaw 2026.4.5 (3e72c03) — I'll do the boring stuff while you dramatically stare at the logs like it's cinema.
+
+Config        : ~/.openclaw/openclaw.json
+Agent dir     : ~/.openclaw/agents/main/agent
+Default       : custom-local1/latest1
+Fallbacks (0) : -
+Image model   : -
+Image fallbacks (0): -
+Aliases (3)   : gpt -> loca/gpt-oss-20b, latest -> local1/latest, latest-13078 -> 8084-g/latest
+Configured models (4): loca/gpt-oss-20b, local1/latest, 8084-g/latest, custom-local1/latest1
+
+Auth overview
+Auth store    : ~/.openclaw/agents/main/agent/auth-profiles.json
+Shell env     : off
+Providers w/ OAuth/tokens (0): -
+- 8084-g effective=models.json:1...3 | models.json=1...3 | source=models.json: ~/.openclaw/agents/main/agent/models.json
+- custom-local1 effective=models.json:12...89 | models.json=12...89 | source=models.json: ~/.openclaw/agents/main/agent/models.json
+- loca effective=models.json:1...3 | models.json=1...3 | source=models.json: ~/.openclaw/agents/main/agent/models.json
+- local1 effective=models.json:1...3 | models.json=1...3 | source=models.json: ~/.openclaw/agents/main/agent/models.json
+
+OAuth/token status
+- none
+
+🦞 OpenClaw 2026.4.5 (3e72c03) — iMessage green bubble energy, but for everyone.
+
+│
+OpenClaw status --all
+
+Overview
+┌─────────────────┬─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐│ Item            │ Value                                                                                                                                                                                                                   │├─────────────────┼─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤│ Version         │ 2026.4.5                                                                                                                                                                                                                ││ OS              │ linux 6.8.0-106-generic (x64)                                                                                                                                                                                           ││ Node            │ 24.14.0                                                                                                                                                                                                                 ││ Config          │ ~/.openclaw/openclaw.json                                                                                                                                                                                               ││ Dashboard       │ http://127.0.0.1:18789/                                                                                                                                                                                                 ││ Tailscale       │ off                                                                                                                                                                                                                     ││ Channel         │ stable (default)                                                                                                                                                                                                        ││ Update          │ pnpm · up to date · npm latest 2026.4.5                                                                                                                                                                                 ││ Gateway         │ local · ws://127.0.0.1:18789 (local loopback) · reachable 284ms · auth token                                                                                                                                            ││ Security        │ Run: openclaw security audit --deep                                                                                                                                                                                     ││ Gateway self    │ ai-mi50 (192.168.1.68) app 2026.4.5 linux 6.8.0-106-generic                                                                                                                                                             ││ Gateway service │ systemd installed · enabled · running (pid 440723)                                                                                                                                                                      ││ Node service    │ systemd not installed                                                                                                                                                                                                   ││ Agents          │ 1 total · 0 bootstrapping · 1 active · 50 sessions                                                                                                                                                                      ││ Secrets         │ none                                                                                                                                                                                                                    │└─────────────────┴─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+Channels
+┌──────────┬─────────┬────────┬─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐│ Channel  │ Enabled │ State  │ Detail                                                                                                                                                                                                      │├──────────┼─────────┼────────┼─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤└──────────┴─────────┴────────┴─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+Agents
+┌────────────┬────────────────┬──────────┬──────────┬───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐│ Agent      │ Bootstrap file │ Sessions │ Active   │ Store                                                                                                                                                                                 │├────────────┼────────────────┼──────────┼──────────┼───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤│ main       │ ABSENT         │       50 │ 4m ago   │ ~/.openclaw/agents/main/sessions/sessions.json                                                                                                                                        │└────────────┴────────────────┴──────────┴──────────┴───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+Diagnosis (read-only)
+
+Gateway connection details:
+  Gateway target: ws://127.0.0.1:18789
+  Source: local loopback
+  Config: /home/wertrigone/.openclaw/openclaw.json
+  Bind: loopback
+
+✓ Config: /home/wertrigone/.openclaw/openclaw.json
+✓ Secret diagnostics (0)
+✓ Restart sentinel: none
+! Port 18789
+  Port 18789 is already in use.
+  - pid 440723 wertrigone: openclaw-gateway (127.0.0.1:18789)
+  - Gateway already running locally. Stop it (openclaw gateway stop) or use a different port.
+! Tailscale: off · unknown
+  error: Error: spawn tailscale ENOENT
+✓ Skills: 9 eligible · 0 missing · /home/wertrigone/.openclaw/workspace
+✓ Plugin compatibility (none)
+✓ Channel issues (none)
+
+Pasteable debug report. Auth tokens redacted.
+Troubleshooting: https://docs.openclaw.ai/troubleshooting
